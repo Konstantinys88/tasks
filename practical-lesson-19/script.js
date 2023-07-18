@@ -40,18 +40,21 @@ const lastMovieFunction = (dataBase) => {
         if (movie != null && value != null && movie != "" && value != "" && movie.length < 50) {
             dataBase.movies[movie] = value;
         } else {
+            console.log("Ошибка введите данные снова");
             i--;
         }
     }
+
     if (dataBase.count < 10) {
         alert("Просмотрено довольно мало фильмов");
-    }
-    if (dataBase.count >= 10 && dataBase.count <= 30) {
+    } else if (dataBase.count >= 10 && dataBase.count <= 30) {
         alert("вы класический зритель");
-    }
-    if (dataBase.count > 30) {
+    }else if (dataBase.count > 30) {
         alert("Вы киноман");
+    } else {
+        alert("Произошла ошибка");
     }
+
     return dataBase;
 }
 
