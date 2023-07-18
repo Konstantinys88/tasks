@@ -33,11 +33,24 @@ const personalMovieDB = {
     privat: false,
 }
 
-function lastMovieFunction(dataBase) {
-    for(let i = 0; i < 2; i++) {
+const lastMovieFunction = (dataBase) => {
+    for (let i = 0; i < 2; i++) {
         const movie = prompt('Один из последних просмотренных фильмов?', '');
         const value = +prompt('На сколько оцените его?', '');
-        dataBase.movies[movie] = value;
+        if (movie != null && value != null && movie != "" && value != "" && movie.length < 50) {
+            dataBase.movies[movie] = value;
+        } else {
+            i--;
+        }
+    }
+    if (dataBase.count < 10) {
+        alert("Просмотрено довольно мало фильмов");
+    }
+    if (dataBase.count >= 10 && dataBase.count <= 30) {
+        alert("вы класический зритель");
+    }
+    if (dataBase.count > 30) {
+        alert("Вы киноман");
     }
     return dataBase;
 }
