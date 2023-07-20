@@ -17,7 +17,7 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    privat: true,
+    privat: false,
 }
 
 const lastMovieFunction = (dataBase) => {
@@ -52,7 +52,7 @@ function writeYourGenre(dataBase) {
     for (let i = 0; i < 3; i++) {
         const genre = prompt(`Ваш любимый жанр под номером ${i + 1}`, '');
         if (genre != null && genre != '') {
-            dataBase.genres.push(genre);234
+            dataBase.genres.push(genre);
         } else {
             console.log("Ошибка введите данные снова");
             i--;
