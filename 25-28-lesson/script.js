@@ -46,79 +46,79 @@ function getCoupeNumber(place) {
     if (typeof (place) != "number" || place < 0 || !Number.isInteger(place)) {
         return console.log('Ошибка. Проверьте правильность введенного номера места');
     }
-    // if (place == 0 || place > 36) {
-    //     return console.log('Таких мест в вагоне не существует');
-    // }
-
-    // return console.log(Math.ceil(place / 4));
-
-    switch (place) {
-        case 1:
-        case 2:
-        case 3:
-        case 4:
-            console.log(1);
-            break;
-
-        case 5:
-        case 6:
-        case 7:
-        case 8:
-            console.log(2);
-            break;
-
-        case 9:
-        case 10:
-        case 11:
-        case 12:
-            console.log(3);
-            break;
-
-        case 13:
-        case 14:
-        case 15:
-        case 16:
-            console.log(4);
-            break;
-
-        case 17:
-        case 18:
-        case 19:
-        case 20:
-            console.log(5);
-            break;
-
-        case 21:
-        case 22:
-        case 23:
-        case 24:
-            console.log(6);
-            break;
-
-        case 25:
-        case 26:
-        case 27:
-        case 28:
-            console.log(7);
-            break;
-
-        case 29:
-        case 30:
-        case 31:
-        case 32:
-            console.log(8);
-            break;
-
-        case 33:
-        case 34:
-        case 35:
-        case 36:
-            console.log(9);
-            break;
-
-        default:
-            console.log('Таких мест в вагоне не существует');
+    if (place == 0 || place > 36) {
+        return console.log('Таких мест в вагоне не существует');
     }
+
+    return console.log(Math.ceil(place / 4));
+
+    // switch (place) {
+    //     case 1:
+    //     case 2:
+    //     case 3:
+    //     case 4:
+    //         console.log(1);
+    //         break;
+
+    //     case 5:
+    //     case 6:
+    //     case 7:
+    //     case 8:
+    //         console.log(2);
+    //         break;
+
+    //     case 9:
+    //     case 10:
+    //     case 11:
+    //     case 12:
+    //         console.log(3);
+    //         break;
+
+    //     case 13:
+    //     case 14:
+    //     case 15:
+    //     case 16:
+    //         console.log(4);
+    //         break;
+
+    //     case 17:
+    //     case 18:
+    //     case 19:
+    //     case 20:
+    //         console.log(5);
+    //         break;
+
+    //     case 21:
+    //     case 22:
+    //     case 23:
+    //     case 24:
+    //         console.log(6);
+    //         break;
+
+    //     case 25:
+    //     case 26:
+    //     case 27:
+    //     case 28:
+    //         console.log(7);
+    //         break;
+
+    //     case 29:
+    //     case 30:
+    //     case 31:
+    //     case 32:
+    //         console.log(8);
+    //         break;
+
+    //     case 33:
+    //     case 34:
+    //     case 35:
+    //     case 36:
+    //         console.log(9);
+    //         break;
+
+    //     default:
+    //         console.log('Таких мест в вагоне не существует');
+    // }
 }
 
 getCoupeNumber(3)
@@ -134,6 +134,35 @@ getCoupeNumber(7.7)
 // => "Ошибка. Проверьте правильность введенного номера места"
 getCoupeNumber(-10)
 //  => "Ошибка. Проверьте правильность введенного номера места"
-
 getCoupeNumber('Hello')
 //  => "Ошибка. Проверьте правильность введенного номера места"
+
+// 1) Создайте функцию, которая принимает в себя целое число минут и возвращает время в нужном формате строки. (Смотри пример). Обратите внимание на окончание слова "час" - оно меняется в зависимости от цифры. Если вместо аргумента приходит не число, дробное или отрицательное число - функция возвращает строку "Ошибка, проверьте данные"
+// Внимание! Давайте пока ограничимся максимум 600ю минутами (10 часов). Так как проверки на большие числа будут раздувать код (33 часа, 31 час, 11 часов и тд). Этого будет достаточно и код будет проверять именно этот промежуток (1 - 10 часов). Но вы можете реализовать и полный скрипт, он тоже должен проходить тесты.
+// Пример:
+
+function getTimeFromMinutes(minuts) {
+    if (typeof (minuts) != "number" || minuts < 0 || !Number.isInteger(minuts)) {
+        return console.log('Ошибка, проверьте данные');
+    }
+
+    let a = Math.floor(minuts / 60);
+    let b = minuts % 60;
+
+    if(a == 1) {
+        return console.log(`Это ${a} час и ${b} минут`);
+    } else if( a == 2 || a == 3 || a == 4 ) {
+        return console.log(`Это ${a} часа и ${b} минут`);
+    } else {
+        return console.log(`Это ${a} часов и ${b} минут`);
+    }
+}
+
+getTimeFromMinutes(150) 
+// => "Это 2 часа и 30 минут"
+getTimeFromMinutes(50) 
+// => "Это 0 часов и 50 минут"
+getTimeFromMinutes(0) 
+// => "Это 0 часов и 0 минут"
+getTimeFromMinutes(-150) 
+// => "Ошибка, проверьте данные"
