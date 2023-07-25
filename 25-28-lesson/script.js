@@ -149,20 +149,51 @@ function getTimeFromMinutes(minuts) {
     let a = Math.floor(minuts / 60);
     let b = minuts % 60;
 
-    if(a == 1) {
+    if (a == 1) {
         return console.log(`Это ${a} час и ${b} минут`);
-    } else if( a == 2 || a == 3 || a == 4 ) {
+    } else if (a == 2 || a == 3 || a == 4) {
         return console.log(`Это ${a} часа и ${b} минут`);
     } else {
         return console.log(`Это ${a} часов и ${b} минут`);
     }
 }
 
-getTimeFromMinutes(150) 
+getTimeFromMinutes(150)
 // => "Это 2 часа и 30 минут"
-getTimeFromMinutes(50) 
+getTimeFromMinutes(50)
 // => "Это 0 часов и 50 минут"
-getTimeFromMinutes(0) 
+getTimeFromMinutes(0)
 // => "Это 0 часов и 0 минут"
-getTimeFromMinutes(-150) 
+getTimeFromMinutes(-150)
 // => "Ошибка, проверьте данные"
+
+
+// 2) Напишите функцию, которая принимает в себя 4 числа и возвращает самое большее из них. Если один из аргументов не является числом или их меньше 4 - возвращается 0. Дробные числа разрешены.
+// Пример:
+
+function findMaxNumber(...number) {
+    let arr = number;
+
+    if (arr.length < 4) {
+        return 0;
+    }
+
+    for(let i = 0; i < arr.length; i++) {
+       let a = arr[i];
+       if(typeof(a) != 'number') {
+        return 0;
+       }
+    }
+
+    arr.sort((a, b) => a - b);
+    let  res = arr[arr.length - 1];
+
+    return res;
+}
+
+console.log(findMaxNumber(1, 5, '6', '10'));
+console.log(findMaxNumber(1, 5, 6.6, 11, 5));
+console.log(findMaxNumber(23, 1, 5, 6.6, 11, 5));
+console.log(findMaxNumber(1, 5, 6.6));
+console.log(findMaxNumber(1, 5, 6.6, 'adassfd'));
+
