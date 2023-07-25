@@ -17,12 +17,12 @@ const personalMovieDB = {
     movies: {},
     actors: {},
     genres: [],
-    privat: false,
+    privat: true,
 }
 
 const lastMovieFunction = (dataBase) => {
     for (let i = 0; i < 2; i++) {
-        const movie = prompt('Один из последних просмотренных фильмов?', '');
+        const movie = prompt('Один из последних просмотренных фильмов?', '').trim();
         const value = +prompt('На сколько оцените его?', '');
         if (movie != null && value != null && movie != "" && value != "" && movie.length < 50) {
             dataBase.movies[movie] = value;
