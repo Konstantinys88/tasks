@@ -43,7 +43,7 @@ function showProgrammingLangs(plan) {
     for (let key in programmingLangs) {
         res += `Язык ${key} изучен на ${programmingLangs[key]}\n`
     }
-    return res
+    return res;
 }
 
 // let {programmingLangs} = personalPlanPeter.skills;
