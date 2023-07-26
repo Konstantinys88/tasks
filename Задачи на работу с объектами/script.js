@@ -7,7 +7,8 @@ const personalPlanPeter = {
         languages: ['ru', 'eng'],
         programmingLangs: {
             js: '20%',
-            php: '10%'
+            php: '10%',
+            // css: '12%',
         },
         exp: '1 month'
     }
@@ -20,7 +21,7 @@ const personalPlanPeter = {
 
 
 function showExperience(plan) {
-    const {exp} = plan.skills;
+    const { exp } = plan.skills;
     return exp;
 }
 
@@ -37,13 +38,19 @@ console.log(showExperience(personalPlanPeter))
 // P.S. Для переноса строки используется \n в конце строки.
 
 function showProgrammingLangs(plan) {
-
+    let res = ``;
+    let { programmingLangs } = plan.skills;
+    for (let key in programmingLangs) {
+        res += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+    }
+    return res
 }
 
 // let {programmingLangs} = personalPlanPeter.skills;
 // for(let key in programmingLangs){
-//     console.log(key)
+//     console.log(`Язык ${key} изучен на ${programmingLangs[key]}`);
 // }
+
 
 
 
