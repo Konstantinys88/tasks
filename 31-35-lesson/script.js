@@ -58,3 +58,47 @@ function modifu(arr) {
 }
 
 console.log(modifu(arr));
+
+
+// Передача по ссылке или по значению, Spread оператор (ES6-ES9)
+
+function copy(obj) {
+    let copy = {};
+    for(let key in obj) {
+        copy[key] = obj[key];
+    }
+    return copy;
+}
+
+const egor = {
+    name: "Egor",
+    age: 12,
+    adres: {
+        city: 'moscow',
+        streat: 'wildberis',
+    }
+}
+
+// let egor2 = copy(egor);
+// const egor3 = JSON.parse(JSON.stringify(egor));
+// egor2.name = "Egor2";
+// egor3.name = "Egor3";
+// egor2.adres.city = "piter";
+// egor3.adres.city = "piter";
+// console.log(egor);
+// console.log(egor2);
+// console.log(egor3);
+
+const add = {
+    id: 145,
+    e: "lo",
+}
+
+let a = Object.assign(egor, add);
+
+console.log(egor)
+console.log(a)
+
+let egor4 = {...egor}
+
+console.log(egor4);
