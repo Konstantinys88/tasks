@@ -1,18 +1,40 @@
 'use strict';
 
+// 3) Создайте метод showAgeAndLangs внутри объекта personalPlanPeter. При его вызове метод будет принимать в себя объект и возвращать строку в нужном виде.
+// Пример:
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter)
+// => 'Мне 29 и я владею языками: RU ENG'
+// Заметьте, что возраст и языки подставляются автоматически из объекта, а языки всегда в верхнем регистре (большими буквами). Если данные в объекте поменяются, то и сообщение тоже изменится.
+
 const personalPlanPeter = {
     name: "Peter",
-    age: "29",
+    age: "33",
     skills: {
-        languages: ['ru', 'eng'],
+        languages: ['ru', 'eng', 'ua'],
         programmingLangs: {
             js: '20%',
             php: '10%',
             // css: '12%',
         },
         exp: '1 month'
+    },
+
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+
+        let res = ``;
+        languages.forEach(item => {
+            res += `${item} `.toUpperCase();
+        })
+
+        return `Мне ${age} и я владею языками: ${res}`;
+
     }
 };
+
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
 // задачи:
 // 1) Напишите функцию showExperience, которая будет принимать в себя объект со всеми данными и возвращать строку с опытом.
@@ -24,7 +46,6 @@ function showExperience(plan) {
     const { exp } = plan.skills;
     return exp;
 }
-
 
 console.log(showExperience(personalPlanPeter))
 // => '1 month'
@@ -46,14 +67,8 @@ function showProgrammingLangs(plan) {
     return res;
 }
 
-// let {programmingLangs} = personalPlanPeter.skills;
-// for(let key in programmingLangs){
-//     console.log(`Язык ${key} изучен на ${programmingLangs[key]}`);
-// }
-
-
-
-
 
 console.log(showProgrammingLangs(personalPlanPeter))
+
+
 
