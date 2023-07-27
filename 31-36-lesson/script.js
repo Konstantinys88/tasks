@@ -64,7 +64,7 @@ console.log(modifu(arr));
 
 function copy(obj) {
     let copy = {};
-    for(let key in obj) {
+    for (let key in obj) {
         copy[key] = obj[key];
     }
     return copy;
@@ -99,6 +99,26 @@ let a = Object.assign(egor, add);
 console.log(egor)
 console.log(a)
 
-let egor4 = {...egor}
+let egor4 = { ...egor }
 
 console.log(egor4);
+
+
+
+const egorTopor = {
+    name: "Egor",
+    weapon: "Topor",
+    sayhello: function() {
+        console.log("agr agr ");
+    }
+};
+
+const egorTopor2 = Object.create(egorTopor);
+
+// egorTopor2.__proto__ = egorTopor;
+
+// Object.setPrototypeOf(egorTopor2, egorTopor)
+// console.log(egorTopor2);
+// console.log(egorTopor2.weapon);
+
+egorTopor2.sayhello();

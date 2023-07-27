@@ -1,24 +1,31 @@
 
 'use strict';
 
-let number;
+// let number;
 
-function start() {
-    number = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    while (number == '' || number == null || isNaN(number)) {
-        number = +prompt('Сколько фильмов вы уже посмотрели?', '');
-    }
-}
-
-start();
+// function start() {
+//     number = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//     while (number == '' || number == null || isNaN(number)) {
+//         number = +prompt('Сколько фильмов вы уже посмотрели?', '');
+//     }
+// }
+// start();
 
 const personalMovieDB = {
-    count: number,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: true,
+    start: function() {
+        personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+        } 
+    },
 }
+
+personalMovieDB.start();
 
 const lastMovieFunction = (dataBase) => {
     for (let i = 0; i < 2; i++) {
