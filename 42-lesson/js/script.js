@@ -9,14 +9,14 @@ box.style.cssText = `width: 300px;
                     background: #ad158c`;
 
 
-const btns = document.getElementsByTagName('button');
+// const btns = document.getElementsByTagName('button');
 const circles = document.getElementsByClassName('circle');
 const hearts = document.querySelectorAll('.heart');
 const oneHearts = document.querySelector('.heart');
 
 console.dir(box);
 
-btns[1].style.borderRadius = '100%';
+// btns[1].style.borderRadius = '100%';
 
 const div = document.createElement('div');
 div.className = 'createDiv';
@@ -41,7 +41,21 @@ div.insertAdjacentHTML('beforeend',`<h1>Heloloo</h1>`)
 
 
 
-console.log(div)
+console.log(div);
+
+
+const btn = document.querySelectorAll('.btn');
+console.log(btn);
+
+const deleteElem = (e) => {
+    e.target.remove()
+}
+
+btn.forEach(item => item.addEventListener('click', deleteElem))
+
+
+console.log(document.body.childNodes)
+
 
 
 
