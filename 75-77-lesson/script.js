@@ -51,4 +51,36 @@ const double = count.bind(2);
 console.log(double(3))
 console.log(double(13))
 
+//классы
+
+class Rectangle {
+    constructor(height, width) {
+        this.height = height;
+        this.width = width;
+    }
+
+    calcArea() {
+        return this.width * this.height;
+
+    }
+
+}
+
+const square = new Rectangle(10, 10);
+console.log(square.calcArea());
+
+class ColorRectangle extends Rectangle {
+    constructor(height, widt, color) {
+        super(height, widt);
+        this.color = color;
+    }
+}
+
+const redSquare = new ColorRectangle(15,15, "red");
+
+console.log(redSquare.calcArea());
+console.log(redSquare.color);
+
+
+
 
