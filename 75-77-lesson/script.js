@@ -81,6 +81,24 @@ const redSquare = new ColorRectangle(15,15, "red");
 console.log(redSquare.calcArea());
 console.log(redSquare.color);
 
+const persone = {
+    name: 'alex',
+    tel: '+7444444',
+    parent: {
+        mom: 'oleg',
+
+    }
+}
+
+const clone = JSON.parse(JSON.stringify(persone));
+
+console.log(persone);
+
+clone.parent.mom = '1312312';
+console.log(clone);
+
+
+
 
 
 
