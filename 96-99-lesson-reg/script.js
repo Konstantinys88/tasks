@@ -44,8 +44,9 @@ const person = {
         this.age = num;
     },
 };
-person.userAge = 43
 
+
+person.userAge = 43
 console.log(person.userAge)
 
 
